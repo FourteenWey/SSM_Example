@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.ffxivsc.ssmp_demo.mapper.BookMapper">
+    <insert id="addBook" parameterType="Book">
+        insert into tb_book (type, name, description) values (#{type},#{name},#{description})
+    </insert>
+    <update id="setBook" parameterType="Book">
+        update tb_book set type = #{type} , name = #{name} , description = #{description} where id = #{id}
+    </update>
+    <select id="getBook" resultType="Book">
+        select
+            id, type, name, description
+        from
+            tb_book
+        where id = #{id}
+    </select>
+    <delete id="delBook">
+        delete from tb_book where id = #{id}
+    </delete>
+</mapper>
